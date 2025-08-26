@@ -1,0 +1,203 @@
+<!-- Header -->
+<header class="header">
+  <div class="container">
+    <div class="header-content">
+      <div class="logo">
+        <h1>FreshCart</h1>
+      </div>
+      
+      <div class="search-bar">
+        <input type="text" placeholder="Search for products...">
+        <button class="search-btn">Search</button>
+      </div>
+      
+      <nav class="nav">
+        <a href="#" class="nav-link">Home</a>
+        <a href="#" class="nav-link">Categories</a>
+        <a href="#" class="nav-link">Deals</a>
+        <a href="#" class="nav-link">Contact</a>
+      </nav>
+      
+      <div class="header-actions">
+        <a href="#" class="header-icon">
+          <i class="fa-regular fa-user"></i>
+        </a>
+        <a href="#" class="header-icon">
+          <i class="fa-regular fa-heart"></i>
+        </a>
+          <button class="cart-btn" (click)="viewCart()">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count">{{ cartCount$ | async }}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h2 class="hero-title">SuperMarket For Fresh Grocery</h2>
+        <p class="hero-description">
+          Introducing our platform for fresh, convenient, online grocery shopping and convenient home delivery.
+        </p>
+        <button class="hero-btn">Shop Now</button>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Fresh Grocery" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Categories -->
+<section class="featured-categories">
+  <div class="container">
+    <div class="section-header">
+      <h3>Featured Categories</h3>
+      <button class="see-all-btn">See All</button>
+    </div>
+    <div class="categories-grid">
+      <div class="category-card" *ngFor="let category of categories">
+        <img [src]="category.image" [alt]="category.name" />
+        <h4>{{ category.name }}</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Special Offers -->
+<section class="special-offers">
+  <div class="container">
+    <div class="offers-grid">
+      <div class="offer-card offer-fruits">
+        <div class="offer-content">
+          <h4>Fruits & Vegetables</h4>
+          <p>Get up to 40% off</p>
+          <button class="offer-btn">Shop Now</button>
+        </div>
+      </div>
+      <div class="offer-card offer-bakery">
+        <div class="offer-content">
+          <h4>Freshly Baked Buns</h4>
+          <p>Get up to 25% off</p>
+          <button class="offer-btn">Shop Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Popular Products -->
+<section class="popular-products">
+  <div class="container">
+    <div class="section-header">
+      <h3>Popular Products</h3>
+    </div>
+        <div class="loading-spinner" *ngIf="isLoading">
+      <i class="fas fa-spinner fa-spin"></i>
+      <p>Loading products...</p>
+    </div>
+    <div class="products-grid">
+      <div class="product-card" *ngFor="let product of products">
+        <div class="product-image">
+          <img [src]="product.thumbnail" [alt]="product.title" />
+          <div class="product-badge" *ngIf="product.discountPercentage > 10">
+            {{ product.discountPercentage | number:'1.0-0' }}% OFF
+          </div>
+        </div>
+        <div class="product-info">
+          <h5 class="product-title">{{ product.title }}</h5>
+          <div class="product-rating">
+            <span class="stars">★★★★★</span>
+            <span class="rating-text">({{ product.rating }})</span>
+          </div>
+          <div class="product-price">
+            <span class="current-price">${{ product.price | number:'1.2-2' }}</span>
+            <span class="original-price" *ngIf="product.discountPercentage > 0">
+              ${{ (product.price * (1 + product.discountPercentage/100)) | number:'1.2-2' }}
+            </span>
+          </div>
+          <button class="add-to-cart-btn">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Daily Best Sells -->
+<section class="daily-best">
+  <div class="container">
+    <h3>Daily Best Sells</h3>
+    <div class="loading-spinner" *ngIf="isLoadingDaily">
+      <i class="fas fa-spinner fa-spin"></i>
+      <p>Loading daily deals...</p>
+    </div>
+    <div class="daily-best-content">
+      <div class="daily-best-banner">
+        <div class="banner-content">
+          <h4>100% Organic Coffee Beans.</h4>
+          <p>Get the best deal for organic coffee beans, full of antioxidants and nutrients.</p>
+          <button class="banner-btn">Shop Now</button>
+        </div>
+      </div>
+      <div class="daily-products">
+        <div class="product-card" *ngFor="let product of dailyProducts">
+          <div class="product-image">
+            <img [src]="product.thumbnail" [alt]="product.title" />
+          </div>
+          <div class="product-info">
+            <h5>{{ product.title }}</h5>
+            <div class="product-rating">
+              <span class="stars">★★★★★</span>
+            </div>
+            <div class="product-price">
+              <span class="current-price">${{ product.price | number:'1.2-2' }}</span>
+            </div>
+            <button class="add-to-cart-btn">Add to cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="#">Vegetables & Fruits</a></li>
+          <li><a href="#">Beverages</a></li>
+          <li><a href="#">Meats & Seafood</a></li>
+          <li><a href="#">Frozen Foods</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Get to know us</h4>
+        <ul>
+          <li><a href="#">Company</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Help Center</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>For Consumers</h4>
+        <ul>
+          <li><a href="#">Payments</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Product Returns</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>all rights belongs to moaaz, kirollos, karim and roshan </p>
+    </div>
+  </div>
+</footer>
