@@ -5,19 +5,16 @@
       <div class="logo">
         <h1>FreshCart</h1>
       </div>
-      
       <div class="search-bar">
         <input type="text" placeholder="Search for products...">
         <button class="search-btn">Search</button>
       </div>
-      
       <nav class="nav">
         <a href="#" class="nav-link">Home</a>
         <a href="#" class="nav-link">Categories</a>
         <a href="#" class="nav-link">Deals</a>
         <a href="#" class="nav-link">Contact</a>
       </nav>
-      
       <div class="header-actions">
         <a href="#" class="header-icon">
           <i class="fa-regular fa-user"></i>
@@ -25,7 +22,7 @@
         <a href="#" class="header-icon">
           <i class="fa-regular fa-heart"></i>
         </a>
-          <button class="cart-btn" (click)="viewCart()">
+        <button class="cart-btn" (click)="viewCart()">
           <i class="fas fa-shopping-cart"></i>
           <span class="cart-count">{{ cartCount$ | async }}</span>
         </button>
@@ -96,31 +93,25 @@
     <div class="section-header">
       <h3>Popular Products</h3>
     </div>
-        <div class="loading-spinner" *ngIf="isLoading">
+    <div class="loading-spinner" *ngIf="isLoading">
       <i class="fas fa-spinner fa-spin"></i>
       <p>Loading products...</p>
     </div>
     <div class="products-grid">
       <div class="product-card" *ngFor="let product of products">
         <div class="product-image">
-          <img [src]="product.thumbnail" [alt]="product.title" />
-          <div class="product-badge" *ngIf="product.discountPercentage > 10">
-            {{ product.discountPercentage | number:'1.0-0' }}% OFF
-          </div>
+          <img [src]="product.image" [alt]="product.title" />
         </div>
         <div class="product-info">
           <h5 class="product-title">{{ product.title }}</h5>
           <div class="product-rating">
             <span class="stars">★★★★★</span>
-            <span class="rating-text">({{ product.rating }})</span>
+            <span class="rating-text">({{ product.rating.rate }})</span>
           </div>
           <div class="product-price">
             <span class="current-price">${{ product.price | number:'1.2-2' }}</span>
-            <span class="original-price" *ngIf="product.discountPercentage > 0">
-              ${{ (product.price * (1 + product.discountPercentage/100)) | number:'1.2-2' }}
-            </span>
           </div>
-          <button class="add-to-cart-btn">Add</button>
+          <button class="add-to-cart-btn" (click)="addToCart(product)">Add</button>
         </div>
       </div>
     </div>
@@ -146,17 +137,18 @@
       <div class="daily-products">
         <div class="product-card" *ngFor="let product of dailyProducts">
           <div class="product-image">
-            <img [src]="product.thumbnail" [alt]="product.title" />
+            <img [src]="product.image" [alt]="product.title" />
           </div>
           <div class="product-info">
             <h5>{{ product.title }}</h5>
             <div class="product-rating">
               <span class="stars">★★★★★</span>
+              <span class="rating-text">({{ product.rating.rate }})</span>
             </div>
             <div class="product-price">
               <span class="current-price">${{ product.price | number:'1.2-2' }}</span>
             </div>
-            <button class="add-to-cart-btn">Add to cart</button>
+            <button class="add-to-cart-btn" (click)="addToCart(product)">Add to cart</button>
           </div>
         </div>
       </div>
@@ -197,7 +189,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>all rights belongs to moaaz, kirollos, karim and roshan </p>
+      <p>all rights belongs to moaaz, kirollos, karim and roshan</p>
     </div>
   </div>
 </footer>
