@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router'; 
 import { CartService } from '../services/cart.services'; 
 
 interface Product {
@@ -24,7 +25,7 @@ interface CategorizedProducts {
 @Component({
   selector: 'app-categories',
   standalone: true,
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule, HttpClientModule , RouterModule],
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.css']
 })

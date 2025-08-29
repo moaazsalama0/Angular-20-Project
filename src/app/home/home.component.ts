@@ -22,7 +22,7 @@ interface Category {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule, HttpClientModule , RouterModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
