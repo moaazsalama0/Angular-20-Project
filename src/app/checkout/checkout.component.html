@@ -1,0 +1,26 @@
+<div class="checkout-container">
+  <h2>Checkout</h2>
+
+  <div *ngIf="cartItems.length > 0; else emptyCart">
+    <div class="cart-item" *ngFor="let item of cartItems">
+      <div class="cart-item-details">
+        <p><strong>{{ item.title }}</strong></p>
+        <p>Quantity: {{ item.quantity }}</p>
+        <p>Price: {{ item.price | currency }}</p>
+      </div>
+      <p class="item-total">= {{ item.price * item.quantity | currency }}</p>
+    </div>
+
+    <hr />
+
+    <div class="cart-summary">
+      <h3>Total: {{ total | currency }}</h3>
+    </div>
+
+    <button class="place-order-btn" (click)="placeOrder()">Place Order</button>
+  </div>
+
+  <ng-template #emptyCart>
+    <p>Your cart is empty.</p>
+  </ng-template>
+</div>
