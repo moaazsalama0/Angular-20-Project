@@ -122,6 +122,19 @@ body {
   cursor: pointer;
 }
 
+/* CSS */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.small-logo {
+  width: 50px; 
+  height: auto;
+  margin-right: 10px; 
+}
+
+
 
 @media (max-width: 768px) {
   .search-bar {
