@@ -1,46 +1,13 @@
-<!-- Header -->
-<header class="header">
-  <div class="container">
-    <div class="header-content">
-      <div class="logo">
-        <h1>FreshCart</h1>
-      </div>
-      <div class="search-bar">
-        <input type="text" placeholder="Search for products...">
-        <button class="search-btn">Search</button>
-      </div>
-      <nav class="nav">
-        <a href="#" class="nav-link">Home</a>
-        <a routerLink="/categories" class="nav-link">Categories</a> <!--TODO: THIS IS NOT WORKING -->
-        <a href="#" class="nav-link">Deals</a>
-        <a href="#" class="nav-link">Contact</a>
-      </nav>
-      <div class="header-actions">
-        <a href="#" class="header-icon">
-          <i class="fa-regular fa-user"></i>
-        </a>
-        <a href="#" class="header-icon">
-          <i class="fa-regular fa-heart"></i>
-        </a>
-        <button class="cart-btn" (click)="viewCart()">
-          <i class="fas fa-shopping-cart"></i>
-          <span class="cart-count">{{ cartCount$ | async }}</span>
-        </button>
-      </div>
-    </div>
-  </div>
-</header>
-
 <!-- Hero Section -->
 <section class="hero">
   <div class="container">
     <div class="hero-content">
       <div class="hero-text">
-        <h2 class="hero-title">SuperMarket For Fresh Grocery</h2>
+        <h2 class="hero-title">FCDS Mart For College Supplies!</h2>
         <p class="hero-description">
-          Introducing our platform for fresh, convenient, online grocery shopping and convenient home delivery.
+          Please enjoy our website! Made by Angular 20 and contains *nearly* everything we learned!
         </p>
-        <button class="hero-btn">Shop Now</button>
+        <button class="hero-btn" [routerLink]="['/categories']">Shop Now</button>
       </div>
       <div class="hero-image">
         <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Fresh Grocery" />
@@ -54,7 +21,6 @@
   <div class="container">
     <div class="section-header">
       <h3>Featured Categories</h3>
-      <button class="see-all-btn">See All</button>
     </div>
     <div class="categories-grid">
       <div class="category-card" *ngFor="let category of categories">
@@ -71,16 +37,16 @@
     <div class="offers-grid">
       <div class="offer-card offer-fruits">
         <div class="offer-content">
-          <h4>Fruits & Vegetables</h4>
+          <h4>Men & Women Clothing</h4>
           <p>Get up to 40% off</p>
-          <button class="offer-btn">Shop Now</button>
+          <button class="offer-btn" [routerLink]="['/categories']">Shop Now</button>
         </div>
       </div>
       <div class="offer-card offer-bakery">
         <div class="offer-content">
-          <h4>Freshly Baked Buns</h4>
+          <h4>Wide Varity Of Jewels</h4>
           <p>Get up to 25% off</p>
-          <button class="offer-btn">Shop Now</button>
+          <button class="offer-btn" [routerLink]="['/categories']">Shop Now</button>
         </div>
       </div>
     </div>
@@ -129,9 +95,9 @@
     <div class="daily-best-content">
       <div class="daily-best-banner">
         <div class="banner-content">
-          <h4>100% Organic Coffee Beans.</h4>
-          <p>Get the best deal for organic coffee beans, full of antioxidants and nutrients.</p>
-          <button class="banner-btn">Shop Now</button>
+          <h4>100% Cotton Clothing!</h4>
+          <p>Get the best deal for T-shirts, Shop now for the best quality clothing!</p>
+          <button class="banner-btn" [routerLink]="['/categories']">Shop Now</button>
         </div>
       </div>
       <div class="daily-products">

@@ -1,3 +1,153 @@
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 2.8rem;
+  }
+  
+  .offers-grid {
+    gap: 1.5rem;
+  }
+  
+  .offer-card {
+    padding: 2rem;
+    min-height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    padding: 0.8rem 0;
+  }
+  
+  .logo h1 {
+    font-size: 1.5rem;
+  }
+  
+  .hero {
+    padding: 3rem 0;
+  }
+  
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2.5rem;
+  }
+  
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  
+  .hero-description {
+    font-size: 1.1rem;
+    max-width: 100%;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-btn {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+  
+  .featured-categories,
+  .special-offers,
+  .popular-products,
+  .daily-best {
+    padding: 3rem 0;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .offers-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .categories-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+  
+  .category-card {
+    padding: 1.2rem;
+  }
+  
+  .category-card img {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+  
+  .daily-best-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .daily-best-banner {
+    text-align: center;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .nav {
+    display: none;
+  }
+  
+  .cart-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+  }
+  
+  .section-header h3 {
+    font-size: 1.6rem;
+  }
+  
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .product-image img {
+    height: 160px;
+  }
+  
+  .offer-content h4 {
+    font-size: 1.5rem;
+  }
+  
+  .offer-content p {
+    font-size: 1rem;
+  }
+  
+  .footer-section {
+    text-align: center;
+  }
+}
+
 /* Reset and Base Styles */
 * {
   margin: 0;
@@ -49,6 +199,7 @@ body {
   color: #333;
   font-weight: 500;
   transition: color 0.3s;
+  cursor: pointer;
 }
 
 .nav-link:hover {

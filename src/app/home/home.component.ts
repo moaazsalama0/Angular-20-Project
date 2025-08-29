@@ -35,20 +35,16 @@ export class HomeComponent implements OnInit {
   
   categories: Category[] = [
     { 
-      name: 'Tea, Coffee & Drinks', 
-      image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&w=200&q=80' 
+      name: 'Clothes', 
+      image: 'https://burst.shopifycdn.com/photos/clothes-on-a-rack-in-a-clothing-store.jpg?width=1000&format=pjpg&exif=0&iptc=0'
     },
     { 
-      name: 'Fruits & Vegetables', 
-      image: 'https://images.unsplash.com/photo-1610832958506-aa56368176cf?ixlib=rb-4.0.3&w=200&q=80' 
+      name: 'SSDs', 
+      image: 'https://kixat.blob.core.windows.net/kixatweb/3262d0f0-1fe0-44a8-a292-d10fa78c6727.jpg' 
     },
     { 
-      name: 'Dairy, Bread & Eggs', 
-      image: 'https://images.unsplash.com/photo-1628088062854-d1870b4553da?ixlib=rb-4.0.3&w=200&q=80' 
-    },
-    { 
-      name: 'Chicken, Meat & Fish', 
-      image: 'https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?ixlib=rb-4.0.3&w=200&q=80' 
+      name: 'Jewelry', 
+      image: 'https://images.squarespace-cdn.com/content/v1/5984f3d103596ea150c48006/1512166175752-1LSM80BFZA1E1RAM4671/gold.jpg' 
     }
   ];
 
